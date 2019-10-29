@@ -33,11 +33,11 @@ def run_browser(link):
 
 def test_abs1(self):
     message = "Congratulations! You have successfully registered!"
-    self.assertEqual(run_browser("http://suninjuly.github.io/registration1.html"), message, "Should be message")
+    assert run_browser("http://suninjuly.github.io/registration1.html") == message, "Should be successfull message"
 
 def test_abs2(self):
     message = "Congratulations! You have successfully registered!"
-    self.assertEqual(run_browser("http://suninjuly.github.io/registration2.html"), message, "Should be message")
+    assert run_browser("http://suninjuly.github.io/registration2.html") ==  message, "Should be successfull message"
 
 if __name__ == "__main__":
     test_abs1()
