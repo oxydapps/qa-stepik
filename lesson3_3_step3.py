@@ -31,11 +31,11 @@ def run_browser(link):
     return welcome_text
 
 
-def test_abs1(self):
+def test_abs1():
     message = "Congratulations! You have successfully registered!"
     assert run_browser("http://suninjuly.github.io/registration1.html") == message, "Should be successfull message"
 
-def test_abs2(self):
+def test_abs2():
     message = "Congratulations! You have successfully registered!"
     assert run_browser("http://suninjuly.github.io/registration2.html") ==  message, "Should be successfull message"
 
