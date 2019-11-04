@@ -9,8 +9,17 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-@pytest.mark.parametrize('language', ["ru", "en-gb"])
-def test_guest_should_see_login_link(browser, language):
-    link = f"http://selenium1py.pythonanywhere.com/{language}/"
+languages = [
+    ("ru", "русский"),
+    ("de", "немецкий"),
+    pytest.param("ua", "украинский", marks=pytest.mark.xfail(reason="no ua language")),
+    ("en-gb", "английский")
+]
+
+
+@pytest.mark.parametrize("code, lang", languages)
+def test_guest_should_see_login_link(browser, code, lang):
+    link = f"http://selenium1py.pythonanywhere.com/{code}/"
+    print(f"Проверяемый язык {lang}")
     browser.get(link)
     browser.find_element_by_css_selector("#login_link")
